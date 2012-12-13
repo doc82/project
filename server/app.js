@@ -51,19 +51,15 @@ io.set('log level', 1); // reduce logging
 io.sockets.on('connection', function(socket)
 	{
 	connections++;
+
 	socket.on('disconnect', function() // Disconnect Logic
-	{
-	if (clients[socket.id]) // if the client exists in the 'authorized' list, then remove them
 		{
-		var tmpUser = clients[socket.id];
-		console.log("Authorized user: "+ socket.id + "  Disconnected");
-		delete clients[socket.id];
-		galaxy.removePlayerGalaxy(tmpUser,socket.id); // remove the user from the galaxy
-		return;
-		}
-	console.log("Un-authorized user: " + socket.id + " disconnected");
-	connections--;
-	});
+		if (user.userList && user.userList[socket.id]) // if the client exists in the 'authorized' list, then remove them
+			{
+			var tmpUser = user.clients[socket.id];
+			}
+		connections--;
+		});
 	});
 
 // Environment Configuration
@@ -81,6 +77,7 @@ app.get('/', function (req, res)
 	res.render('index');
 	});
 
-
-
+///////////////////////////////
+// Make everything global
+exports.io = io;
 
