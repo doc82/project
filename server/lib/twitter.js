@@ -47,19 +47,20 @@ function checkTweetData()
 // Tweet streaming
 twit.stream(
 	'statuses/filter',
-	{ track: ['arenanet', 'guildwars2', 'guildwars'] },
+	{ track: ['arenanet', 'guildwars2', 'guildwars', ['dog']] },
 	function(stream)
 		{
 		stream.on('data', function(tweet)
 			{
+			console.log('streaming an ew tweet!');
 			tweets.unshift(tweet);
 			app.io.sockets.emit('tweet', tweet); // Emit the tweet to all connected clients
 			checkTweetData();
 			});
 		}
-);
+	);
 
 /////////////////////////////////
-// Make data global to rest of the App
+// Exports
 exports.tweets = tweets;
 exports.tweetSeting = tweetSettings;

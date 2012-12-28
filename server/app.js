@@ -52,6 +52,7 @@ io.sockets.on('connection', function(socket)
 	{
 	connections++;
 
+
 	socket.on('disconnect', function() // Disconnect Logic
 		{
 		if (user.userList && user.userList[socket.id]) // if the client exists in the 'authorized' list, then remove them

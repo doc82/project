@@ -33,7 +33,8 @@
     .container {
         border-style: solid;
         border-color: #bf7632;
-        background-color: #fff;
+        background-color:rgba(255,255,255,.5);
+        margin-bottom: 20px;
 
         -moz-box-shadow:    3px 3px 5px 6px rgba(0, 0, 0, 0.4);
         -webkit-box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.4);
@@ -43,6 +44,35 @@
 
 /* #Page Styles
 ================================================== */
+.tweet-feed {
+    font-family: georgia;
+    font-size: 15px;
+    color: #333333;
+    padding: 10px;
+}
+
+.tweet-feed .tweet {
+    margin: 0 auto 15px auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dotted #ccc;
+    width: 100%;
+}
+
+.tweet-feed .tweet a {
+    text-decoration: none;
+    color: #13c9d0;
+}
+
+.tweet-feed .tweet a:hover {
+    text-decoration: underline;
+}
+
+.tweet-feed .tweet .time {
+    font-size: 10px;
+    font-style: italic;
+    color: #666666;
+}
 
 /* #Media Queries
 ================================================== */
